@@ -202,12 +202,13 @@ body {
     box-shadow: 8px 8px 16px #3a3a3a;
     width: 25rem;
     min-height: 22rem;
-    display: flex;
 }
 
 .addBookForm {
     align-items: center;
     justify-content: center;
+    display: flex;
+    height: 22rem;
 }
 
 button {
@@ -229,9 +230,9 @@ button:active {
 .inputContainer {
     display: grid;
     align-items: center;
-    gap: 24px;
+    gap: 1.5rem;
     grid-template-columns: 4rem 1fr;
-    grid-template-rows: repeat(3, 1.4rem);
+    grid-template-rows: repeat(5, 1.5rem);
 }
 
 .inputContainer label {
@@ -241,10 +242,11 @@ button:active {
 .inputContainer input {
     border: 1px solid #00000000;
     outline: 0;
-    border-radius: 12px;
-    padding: 4px;
-    padding-left: 8px;
+    border-radius: 0.75rem;
+    padding: 0.25rem;
+    padding-left: 0.5rem;
     font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
     background-color: #737373;
     color: #e5e5e5;
 }
@@ -277,14 +279,15 @@ input:focus {
     html {
         font-size: 12px;
     }
-    
+
     .content {
         flex-direction: column;
         justify-content: start;
         align-items: center;
+        gap: 20px;
     }
     
     body {
-        padding-top: 100px;
+        padding-top: 50px;
     }
 }

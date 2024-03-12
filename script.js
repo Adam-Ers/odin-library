@@ -10,10 +10,40 @@ function Book(title, date, author, pages, read) {
 const addBookForm = document.querySelector('.inputContainer');
 const bookList = document.querySelector('.bookList');
 
+const library = [];
+
+library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
+library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
+library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
+library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
+
 function onAddBook() {
     addBookForm.reset();
 }
 
+function printBooks() {
+    const hr = document.createElement("hr");
+    bookList.appendChild(hr);
+    library.forEach(book => {
+        const p = document.createElement('p');
+        p.style.whiteSpace = "pre";
+        p.textContent += "Title: " + book.title + "\r\n";
+        p.textContent += "Date: " + book.date + "\r\n";
+        p.textContent += "Author: " + book.author + "\r\n";
+        p.textContent += "Pages: " + book.pages + "\r\n";
+        let isRead = book.read ? "Yes" : "No"
+        p.textContent += "Read: " + isRead + "\r\n";
+        bookList.append(p);
+
+        const removeButton = document.createElement('button');
+        removeButton.textContent = "Remove";
+        removeButton.style.marginTop = "0.4rem";
+        bookList.appendChild(removeButton);
+
+        const newHr = document.createElement("hr");
+        bookList.appendChild(newHr);
+    })
+}
 
 window.addEventListener('load', () => {
 
@@ -25,4 +55,6 @@ window.addEventListener('load', () => {
         if (input.value != '') { input.value = Math.max(input.value, 1); }
         if (input.value.length > 8) { input.value = input.value.slice(0, 8); }
     })
+
+    printBooks();
 })
