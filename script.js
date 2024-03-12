@@ -47,6 +47,7 @@ function readBook(event) {
 
 function printBooks() {
     bookList.innerHTML = "";
+    if (library.length == 0) { bookList.textContent = "Nothing but dust!"; return; }
     const hr = document.createElement("hr");
     bookList.appendChild(hr);
     library.forEach((book, index) => {
