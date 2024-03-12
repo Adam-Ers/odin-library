@@ -7,7 +7,32 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
+    <div class="header">Ye Olde Collection of Classics</div>
+    <div class="content">
+        <div class="addBookForm">
+            <form action="javascript:void(0);" class="inputContainer">
+                <label for="nameInput" class="nameLabel">Name:</label>
+                <input type="text" name="nameInput" id="nameInput">
+                <label for="dateInput" class="dateLabel">Date:</label>
+                <input type="date" name="dateInput" id="dateInput">
+                <label for="authorInput" class="authorLabel">Author:</label>
+                <input type="text" name="authorInput" id="authorInput">
+                <label for="pagesInput" class="pagesLabel">Pages:</label>
+                <input type="number" name="pagesInput" id="pagesInput">
+                <label>Read:</label>
+                <div class="readYesNo">
+                    <label for="yesRadio">Yes</label>
+                    <input type="radio" name="read" id="yesRadio" checked>
+                    <label for="noRadio">No</label>
+                    <input type="radio" name="read" id="noRadio">
+                </div>
+                <button type="submit" id="addBook">Add Book</button>
+            </form>
+        </div>
+        <div class="bookList">
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus facilis minus corporis obcaecati impedit quia sequi modi officia, harum aspernatur eveniet, soluta animi laboriosam neque unde magnam quos odit molestiae.
+        </div>
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
