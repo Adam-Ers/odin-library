@@ -52,7 +52,8 @@ function printBooks() {
     bookList.appendChild(hr);
     library.forEach((book, index) => {
         const p = document.createElement('p');
-        p.style.whiteSpace = "pre";
+        p.style.whiteSpace = "pre-line";
+        p.style.overflowWrap = "break-word";
         p.textContent += "Title: " + book.title + "\r\n";
         p.textContent += "Date: " + book.date + "\r\n";
         p.textContent += "Author: " + book.author + "\r\n";
