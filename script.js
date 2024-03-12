@@ -7,6 +7,10 @@ function Book(title, date, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.markRead = function() {
+    this.read = true;
+}
+
 const addBookForm = document.querySelector('.inputContainer');
 const bookList = document.querySelector('.bookList');
 
@@ -15,7 +19,8 @@ const library = [];
 library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
 library.push(new Book("The Wonderful Wibard of Oz", "05/17/1990", "L. Brank Faum", 154, true));
 
-function onAddBook() {
+function onAddBook(event) {
+    event.preventDefault();
     let formData = new FormData(addBookForm);
     let title = formData.get("nameInput") === "" ? "Unknown" : formData.get("nameInput");
     let date = formData.get("dateInput") === "" ? "Unknown" : formData.get("dateInput");
@@ -31,6 +36,12 @@ function onAddBook() {
 function removeBook(event) {
     let button = event.target;
     library.splice(button.id, 1);
+    printBooks();
+}
+
+function readBook(event) {
+    let button = event.target;
+    library[button.id].markRead();
     printBooks();
 }
 
@@ -55,6 +66,17 @@ function printBooks() {
         removeButton.id = index;
         removeButton.addEventListener("click", removeBook);
         bookList.appendChild(removeButton);
+
+        if (!book.read)
+        {
+            const readButton = document.createElement('button');
+            readButton.textContent = "Read";
+            readButton.style.marginTop = "0.4rem";
+            readButton.style.marginLeft = "0.4rem";
+            readButton.id = index;
+            readButton.addEventListener("click", readBook);
+            bookList.appendChild(readButton);
+        }
 
         const newHr = document.createElement("hr");
         bookList.appendChild(newHr);
