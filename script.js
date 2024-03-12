@@ -13,11 +13,18 @@ const bookList = document.querySelector('.bookList');
 const library = [];
 
 library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
-library.push(new Book("The Wonderful Wibard of Oz", "05/17/1990", "L. Brank Faum", 154, false));
-library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
-library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
+library.push(new Book("The Wonderful Wibard of Oz", "05/17/1990", "L. Brank Faum", 154, true));
 
 function onAddBook() {
+    let formData = new FormData(addBookForm);
+    let title = formData.get("nameInput") === "" ? "Unknown" : formData.get("nameInput");
+    let date = formData.get("dateInput") === "" ? "Unknown" : formData.get("dateInput");
+    let author = formData.get("authorInput") === "" ? "Unknown" : formData.get("authorInput");
+    let pages = formData.get("pagesInput") === "" ? "Unknown" : formData.get("pagesInput");
+    let read = formData.get("read") === "Yes" ? true : false;
+    let newBook = new Book(title, date, author, pages, read);
+    library.push(newBook);
+    printBooks();
     addBookForm.reset();
 }
 
@@ -28,7 +35,7 @@ function removeBook(event) {
 }
 
 function printBooks() {
-    bookList.innerHTML = "";    
+    bookList.innerHTML = "";
     const hr = document.createElement("hr");
     bookList.appendChild(hr);
     library.forEach((book, index) => {
