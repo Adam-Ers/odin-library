@@ -45,7 +45,7 @@ function readBook(event) {
 }
 
 function printBooks() {
-    bookList.innerHTML = "";
+    bookList.replaceChildren();
     if (library.length == 0) { bookList.textContent = "Nothing but dust!"; return; }
     const hr = document.createElement("hr");
     bookList.appendChild(hr);
