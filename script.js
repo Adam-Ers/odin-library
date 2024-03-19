@@ -15,8 +15,8 @@ const bookList = document.querySelector('.bookList');
 
 const library = [];
 
-library.push(new Book("The Wonderful Wizard of Oz", "05/17/1990", "L. Frank Baum", 154, false));
-library.push(new Book("The Wonderful Wibard of Oz", "05/17/1990", "L. Brank Faum", 154, true));
+library.push(new Book("The Wonderful Wizard of Oz", "1900-05-17", "L. Frank Baum", 154, false));
+library.push(new Book("The Wonderful Wibard of Oz", "1900-05-17", "L. Brank Faum", 154, true));
 
 function onAddBook(event) {
     event.preventDefault();
