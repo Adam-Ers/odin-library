@@ -1,14 +1,13 @@
+class Book {
+    constructor(title, date, author, pages, read) {
+        this.title = title;
+        this.date = date;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 
-function Book(title, date, author, pages, read) {
-    this.title = title;
-    this.date = date;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
-}
-
-Book.prototype.markRead = function() {
-    this.read = true;
+    markRead() { this.read = true; }
 }
 
 const addBookForm = document.querySelector('.inputContainer');
